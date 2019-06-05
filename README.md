@@ -44,11 +44,7 @@ A trivial intuition is that MSER gives regions of similar intensity given a gray
 
 
 <p align="center">
-  <img src="/Images/blue_msr.png" alt="blue_MSER">
-</p>
-
-<p align="center">
-  <img src="/Images/red_msr.png" alt="red_MSER">
+  <img src="/Images/video.gif" alt="blue_hsv">
 </p>
 
 - Noise Removal is done
