@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu May 16 17:51:52 2019
-
-@author: psanh
-"""
 import cv2
 import numpy as np
 import glob
