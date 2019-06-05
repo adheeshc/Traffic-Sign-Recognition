@@ -5,15 +5,17 @@
 The aim of this project is to do Traffic Sign Recognition. This is a two step process of detection and classification.
 The Traffic Sign Dataset used in this project is by courtesy of Radu Timofte from ETH-Zurich Vision Lab
 
-Please refer to [Project Report]() for further description
+Please refer to [Project Report](https://github.com/adheeshc/Traffic-Sign-Recognition/blob/master/Report/Report.pdf) for further description
 
 ### Detection Stage
 
 In the Detection stage we aim to extract possible regions which contain a traffic sign. 
 
 <p align="center">
-  <img src="/Images/pre.png" alt="pre">
+  <img src="/Images/input.png" alt="pre">
 </p>
+
+First, I have added a black mask in the bottom half as a traffic sign detected will only be near the top half the image and not on the ground.
 
 There are two approaches I have attempted to detect the traffic sign - Thresholding in HSV Color Space and Using MSER Algorithm
 
@@ -22,7 +24,11 @@ There are two approaches I have attempted to detect the traffic sign - Threshold
 Here the idea is, that any traffic sign will be of a typical color composition. The HSV Color Space serves better to identify appropriate bands for H, S, V channels to model the color composition of a traffic sign. Also it isolates intensity/brightness (unlike RGB) which helps with robustness to illumination.
 
 <p align="center">
-  <img src="/Images/pre.png" alt="pre">
+  <img src="/Images/blue_hsv.png" alt="blue_hsv">
+</p>
+
+<p align="center">
+  <img src="/Images/red_hsv.png" alt="red_hsv">
 </p>
 
 - Noise Removal is done
@@ -36,8 +42,13 @@ This algorithm howeer involves a lot of tweaking and I was not able to get a goo
 
 A trivial intuition is that MSER gives regions of similar intensity given a grayscale image, and we know that a traffic sign is mostly a uniform intensity region, be it red or blue.
 
+
 <p align="center">
-  <img src="/Images/pre.png" alt="pre">
+  <img src="/Images/blue_msr.png" alt="blue_MSER">
+</p>
+
+<p align="center">
+  <img src="/Images/red_msr.png" alt="red_MSER">
 </p>
 
 - Noise Removal is done
@@ -47,12 +58,14 @@ A trivial intuition is that MSER gives regions of similar intensity given a gray
 - MSER region is extracted from the image.
 - The bounding box is fit on the MSER region
 
+Please look at the references for more information about MSER algorithm
+
 ### Traffic Sign Classification
 
 In the Classification stage, we go over each Region of Interest (ROI) extracted previously and try to identify a traffic sign
 
 <p align="center">
-  <img src="/Images/sift.png" alt="SIFT">
+  <img src="/Images/images.png" alt="images">
 </p>
 
 - I resize the images to a standard 64x64 extract HOG features
@@ -73,12 +86,12 @@ The ROI previously extracted in the detection stage is then used as an input to 
 
 ## **FILE DESCRIPTION**
 
-- Code Folder/[iniital.py]() - The code using MSER algorithm
-- Code Folder/[project6.py]() - The code using HSV Color Space
-- Code Folder/[classifierSVD.py]() - used for training the SVD
-- Code Folder/[svm_function.py]() - used for testing the SVD
+- Code Folder/[iniital.py](https://github.com/adheeshc/Traffic-Sign-Recognition/blob/master/Code/iniital.py) - The code using MSER algorithm
+- Code Folder/[project6.py](https://github.com/adheeshc/Traffic-Sign-Recognition/blob/master/Code/project6.py) - The code using HSV Color Space
+- Code Folder/[classifierSVD.py](https://github.com/adheeshc/Traffic-Sign-Recognition/blob/master/Code/classifierSVD.py) - used for training the SVD
+- Code Folder/[svm_function.py](https://github.com/adheeshc/Traffic-Sign-Recognition/blob/master/Code/svm_function.py) - used for testing the SVD
 
-- Dataset folder - Contains Good_Images folder containing all good images to be displayed next to detected signs, link to Input images folder, Traiing Images and Testing Images
+- Dataset folder - Contains Good_Images folder containing all good images to be displayed next to detected signs, link to Input images folder, Training Images and Testing Images. Also has link to 2 xml files that have trained classification model
 
 - Images folder - Contains images for github use (can be ignored)
 
@@ -86,7 +99,7 @@ The ROI previously extracted in the detection stage is then used as an input to 
   
 - References folder - Contains supplementary documents that aid in understanding
 
-- Report folder - Contains [Project Report]()
+- Report folder - Contains [Project Report](https://github.com/adheeshc/Traffic-Sign-Recognition/blob/master/Report/Report.pdf)
 
 ## **RUN INSTRUCTIONS**
 
